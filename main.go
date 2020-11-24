@@ -15,11 +15,7 @@ import (
 	"github.com/PuerkitoBio/goquery"
 )
 
-var (
-	numOfWorkers = 10
-	upTo         = 2370
-	fallBack     = 2387
-)
+var fallBack = 2387
 
 type task struct {
 	url string
@@ -76,6 +72,8 @@ func main() {
 	var count int
 
 	saveDir := flag.String("d", "images", "the directory for saving the images")
+	numOfWorkers := flag.Int("w", 10, "The number of workers default is 10")
+	upTo := flag.Int("m", 2370, "The previous link count to stop downloading default is 2370")
 	flag.Parse()
 
 	err := os.Mkdir(*saveDir, os.ModePerm)
@@ -112,12 +110,12 @@ func main() {
 
 	tasks := make(chan task)
 
-	for i := 0; i < numOfWorkers; i++ {
+	for i := 0; i < *numOfWorkers; i++ {
 		wg.Add(1)
 		go downloadImage(tasks, &wg, i, *saveDir)
 	}
 
-	for i := upTo; i < count; i++ {
+	for i := *upTo; i < count; i++ {
 		url := fmt.Sprintf("%s/%d/", url, i)
 		tasks <- task{url, i}
 	}
