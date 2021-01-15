@@ -4,7 +4,7 @@ A tiny utility to help you concurrently download memes(images) from [xkcd.com](h
 
 ## Install
 
-go get -u -x github.com/vanderkilu/xkcd
+go get -u -x github.com/vanderkilu/xkcdDL
 
 ## Usage
 
@@ -20,4 +20,4 @@ go get -u -x github.com/vanderkilu/xkcd
 
 `xkcdDL` //uses default values
 
-`xkcdDL -d /home/vndrkl/xkcd -w 20 -m 100`
+`xkcdDL -d /home/vndrkl/xkcd -w 20 -m 100
