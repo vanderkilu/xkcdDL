@@ -4,11 +4,12 @@ A tiny utility to help you concurrently download memes(images) from [xkcd.com](h
 
 ## Install
 
-go get -u -x github.com/vanderkilu/xkcdDL
+`go get -u -x github.com/vanderkilu/xkcdDL`
 
 ## Usage
 
-    xkcdDL [options]
+    cd go/bin
+    ./xkcdDL [options]
 
 ## Options
 
