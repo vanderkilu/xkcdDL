@@ -73,7 +73,7 @@ func main() {
 
 	saveDir := flag.String("d", "images", "the directory for saving the images")
 	numOfWorkers := flag.Int("w", 10, "The number of workers default is 10")
-	upTo := flag.Int("m", 2370, "The previous link count to stop downloading default is 2370")
+	upTo := flag.Int("m", 10, "The number of images to stop download. Default is 10")
 	flag.Parse()
 
 	err := os.Mkdir(*saveDir, os.ModePerm)
@@ -115,8 +115,9 @@ func main() {
 		go downloadImage(tasks, &wg, i, *saveDir)
 	}
 
-	for i := *upTo; i < count; i++ {
-		url := fmt.Sprintf("%s/%d/", url, i)
+	for i := 0; i < *upTo; i++ {
+		diff := count - i
+		url := fmt.Sprintf("%s/%d/", url, diff)
 		tasks <- task{url, i}
 	}
 	close(tasks)
