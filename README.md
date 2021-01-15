@@ -20,4 +20,4 @@ go get -u -x github.com/vanderkilu/xkcdDL
 
 `xkcdDL` //uses default values
 
-`xkcdDL -d /home/vndrkl/xkcd -w 20 -m 100
+`xkcdDL -d /home/vndrkl/xkcd -w 20 -m 100`
