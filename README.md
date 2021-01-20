@@ -2,6 +2,8 @@
 
 A tiny utility to help you concurrently download memes(images) from [xkcd.com](https://xkcd.com/) by specifying the number of images to download. Default is the 10 most current images. It pretty fast as it maskes use of goroutines.
 
+![image](https://github.com/vanderkilu/xkcdDL/blob/master/xkcd.gif)
+
 ## Install
 
 `go get -u -x github.com/vanderkilu/xkcdDL`
